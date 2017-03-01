@@ -5,7 +5,7 @@ logo_cover: /images/logo-wit.svg
 description: Ik word omschreven als perfectionistisch en doelgericht, deze eigenschappen laat ik terug komen in mijn hobby. Ontwikkelen met moderne web technologieën.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: https://jorijn.com # the base hostname & protocol for your site
-permalink: /:year/:month/:day/:title.html
+permalink: /:title/
 
 # Main header
 header:
@@ -13,15 +13,15 @@ header:
 
 # Navigation
 navigation:
-  - slug: /diensten/
+  - slug: /diensten
     label: Diensten
-  - slug: /projecten/
+  - slug: /projecten
     label: Projecten
-  - slug: /contact/
+  - slug: /contact
     label: Contact
 
 # Services (all are optional)
-analytics: UA-1234567-8 # Google Analytics tracking ID
+analytics:
 disqus:
 facebook_l10n: nl_NL    # Your locale (en_US, fr_FR, etc.)
 twitter: Jorijn    # Website's Twitter username (without the '@')
@@ -33,6 +33,12 @@ kramdown:
   input: GFM # Enable GitHub Flavored Markdown
 
 # Plugins
-gems: [jekyll-paginate]
+gems:
+  - jekyll-paginate
+  - jekyll-sitemap
+
 paginate: 5 # Post excerpts by page
 paginate_path: "/page/:num" # Default was "/page:num/"
+
+sass:
+    style: compressed

@@ -33,7 +33,7 @@
     <a href="{{ author.slug | prepend: '/author/' | prepend: site.baseurl }}">{{ author.name }}</a>
 
   {% if post.categories.size > 0 %}
-    {{ post.categories | array_to_sentence_string | prepend: 'on ' }}
+    {{ post.categories | array_to_sentence_string | prepend: 'in ' }}
   {% endif %}
 
     <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time>

@@ -19,3 +19,16 @@ Header set Cache-Control "max-age=14400, must-revalidate"
 RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# Tell browser this site runs under https, always
+Header always set Strict-Transport-Security "max-age=86400"
+
+# Enable multiviews
+Options +MultiViews
+
+# remove trailing slash
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /.*\.html\ HTTP/
+RewriteRule ^(.*)\.html$ /$1 [R=301,L]
