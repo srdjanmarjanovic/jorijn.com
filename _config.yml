@@ -4,6 +4,7 @@ meta_description: "Freelance Web Developer uit Noord-Brabant, Nederland"
 
 aboutPage: true
 
+gems: [jekyll-paginate, redcarpet]
 markdown: redcarpet
 highlighter: pygments
 

@@ -3,8 +3,8 @@
   <channel>
     <title>Jorijn Schrijvershof</title>
     <description>Ik word omschreven als perfectionistisch en doelgericht, deze eigenschappen laat ik terug komen in mijn hobby. Ontwikkelen met moderne web technologieën.</description>
-    <link>http://jorijn.com</link>
-    <atom:link href="http://jorijn.com/feed.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:4000</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
         <title>De migratie van Exchange 2007 naar Google Apps</title>
@@ -14,8 +14,8 @@
 </description>
         
         <pubDate>Sun, 11 Apr 2010 12:18:00 +0200</pubDate>
-        <link>http://jorijn.com/2010/de-migratie-van-exchange-2007-naar-google-apps/</link>
-        <guid isPermaLink="true">http://jorijn.com/2010/de-migratie-van-exchange-2007-naar-google-apps/</guid>
+        <link>http://localhost:4000/2010/de-migratie-van-exchange-2007-naar-google-apps/</link>
+        <guid isPermaLink="true">http://localhost:4000/2010/de-migratie-van-exchange-2007-naar-google-apps/</guid>
       </item>
     
   </channel>
