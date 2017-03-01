@@ -1,43 +1,38 @@
-name: Jorijn Schrijvershof
-description: "Ik word omschreven als perfectionistisch en doelgericht, deze eigenschappen laat ik terug komen in mijn hobby. Ontwikkelen met moderne web technologieën."
-meta_description: "Freelance Web Developer uit Noord-Brabant, Nederland"
+# Site settings
+title: Jorijn Schrijvershof
+logo: /images/logo.svg
+logo_cover: /images/logo-wit.svg
+description: Ik word omschreven als perfectionistisch en doelgericht, deze eigenschappen laat ik terug komen in mijn hobby. Ontwikkelen met moderne web technologieën.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: https://jorijn.com # the base hostname & protocol for your site
+permalink: /:year/:month/:day/:title.html
 
-aboutPage: true
+# Main header
+header:
+  text_shadow: 0 0 20px rgba(28, 47, 53, .8) # CSS text-shadow
 
-gems: [jekyll-paginate, redcarpet]
-markdown: redcarpet
-highlighter: pygments
+# Navigation
+navigation:
+  - slug: /diensten/
+    label: Diensten
+  - slug: /projecten/
+    label: Projecten
+  - slug: /contact/
+    label: Contact
 
-paginate: 20
-baseurl: /
-domain_name: 'http://jorijn.com'
-google_analytics: 'UA-XXXXXXXX-X'
-disqus: false
-disqus_shortname: 'your-disqus-shortname'
+# Services (all are optional)
+analytics: UA-1234567-8 # Google Analytics tracking ID
+disqus:
+facebook_l10n: nl_NL    # Your locale (en_US, fr_FR, etc.)
+twitter: Jorijn    # Website's Twitter username (without the '@')
 
-# Details for the RSS feed generator
-url:            'http://jorijn.com'
-author:         'Jorijn Schrijvershof'
-authorTwitter:  'Jorijn'
+# Build settings
+exclude: [CNAME, Gemfile, Gemfile.lock, publish]
+markdown: kramdown
+kramdown:
+  input: GFM # Enable GitHub Flavored Markdown
 
-permalink:       /:year/:title/
-
-defaults:
-    -
-        scope:
-            path: "" # empty string for all files
-            type: pages
-        values:
-            layout: default
-    -
-        scope:
-            path: "" # empty string for all files
-            type: posts
-        values:
-            layout: post
-    -
-        scope:
-            path: ""
-            type: drafts
-        values:
-            layout: post
+# Plugins
+gems: [jekyll-paginate]
+paginate: 5 # Post excerpts by page
+paginate_path: "/page/:num" # Default was "/page:num/"

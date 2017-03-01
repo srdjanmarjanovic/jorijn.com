@@ -1,8 +1,13 @@
-<nav class="main-nav">
-    <a href="{{ site.baseurl }}">Home </a>
-    <a href="{{ site.baseurl }}diensten">Diensten</a>
-    <a href="{{ site.baseurl }}projecten">Projecten</a>
-    <a href="{{ site.baseurl }}posts">Posts</a>
-    <a href="{{ site.baseurl }}feed.xml">RSS</a>
-    <a class="cta" href="{{ site.baseurl }}contact">Contact</a>
-</nav>
+<div class="nav">
+  <h3 class="nav-title">Navigatie</h3>
+  <a href="#" class="nav-close">
+    <span class="hidden">Sluiten</span>
+  </a>
+  <ul>
+  {% for item in site.navigation %}
+    <li class="nav-{{ item.slug }}{% if item.slug == page.name %} nav-current{% endif %}" role="presentation"><a href="{{ item.slug | prepend: site.baseurl }}">{{ item.label }}</a></li>
+  {% endfor %}
+  </ul>
+  <a class="subscribe-button icon-feed" href="{{ '/atom.xml' | prepend: site.baseurl }}">Abonneren</a>
+</div>
+<span class="nav-cover"></span>

@@ -1,7 +1,11 @@
 ---
+layout: post
 title:  "De migratie van Exchange 2007 naar Google Apps"
 date:   2010-04-11 10:18:00
-description:
+categories: legacy google-apps
+author: jorijn
+cover: /images/covers/posts/de-migratie-van-exchange-2007-naar-google-apps.jpg # Header cover [optional]
+image: /images/covers/posts/de-migratie-van-exchange-2007-naar-google-apps.jpg # Used by Twitter Cards and Open Graph [optional]
 ---
 
 Op het moment van schrijven werk(te) ik bij Rhinofly. Dit is een bedrijf van bijna 50 werknemers groot en met zijn allen hebben wij bijna een half miljoen e-mail berichten opgeslagen op onze Exchange 2007 server. Dit komt neer een gemiddeld aantal van 10.000 e-mail berichten per persoon.

@@ -1,69 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
-<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# profile: http://ogp.me/ns/profile#">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
+  {% include head.html %}
 
-  <title>
-    {% if page.title %}
-      Jorijn Schrijvershof - {{ page.title }}
-    {% else %}
-      Jorijn Schrijvershof // Freelance Web Developer
-    {% endif %}</title>
-  <link rel="shortcut icon" href="{{ site.baseurl }}assets/images/favicon.ico">
-  <link rel="stylesheet" href="{{ site.baseurl }}assets/css/style.css">
-  <link rel="alternate" type="application/rss+xml" title="Jorijn Schrijvershof" href="{{ site.baseurl }}rss.xml">
-  <link rel="stylesheet" href="{{ site.baseurl }}assets/css/highlight.css">
+  {% capture template %}
+    {% if page.post_class %}
+      {{ page.post_class }}
+    {% elsif layout.post_class %}
+      {{ layout.post_class }}
+    {% elsif page.post_class == nil %}
+      {% if paginator.page != 1 %}
+        archive-template
+      {% else %}
+        home-template
+      {% endif %}
+    {% endif %}
+  {% endcapture%}
 
-  <meta itemprop="name" content="Jorijn Schrijvershof // Freelance Web Developer">
-  <meta itemprop="description" content="Freelance Web Developer uit Noord-Brabant, Nederland">
-  <meta itemprop="image" content="http://jorijn.com/assets/images/logo.png">
+  <body class="{{ template | strip }} nav-closed">
+    {% include navigation.html %}
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:site" content="@jorijn">
-  <meta name="twitter:title" content="Jorijn Schrijvershof // Freelance Web Developer">
-  <meta name="twitter:description" content="Freelance Web Developer uit Noord-Brabant, Nederland">
-  <meta name="twitter:creator" content="@jorijn">
-  <meta name="twitter:image:src" content="http://jorijn.com/assets/images/logo.png">
+    <div class="site-wrapper">
+      {% include header.html header_class=layout.header_class %}
 
-  <!-- Open Graph General (Facebook & Pinterest) -->
-  <meta property="og:url" content="http://jorijn.com">
-  <meta property="og:title" content="Jorijn Schrijvershof // Freelance Web Developer">
-  <meta property="og:description" content="Freelance Web Developer uit Noord-Brabant, Nederland">
-  <meta property="og:site_name" content="Jorijn Schrijvershof // Freelance Web Developer">
-  <meta property="og:image" content="http://jorijn.com/assets/images/logo.png">
-  <meta property="og:type" content="place">
-  <meta property="og:locale" content="nl_NL">
+      {{ content }}
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      {% include footer.html %}
+    </div>
 
-</head>
-<body>
-
-  {% if page.navigation != false %}
-  {% include navigation.html %}
-  {% endif %}
-
-  {% if page.profile %}
-      {% include profile.html %}
-  {% endif %}
-
-  <section id="wrapper" class="{% if page.profile %}home{% endif %}">
-    {{ content }}
-  </section>
-
-  <script src="{{ site.baseurl }}assets/js/main.js"></script>
-  <script src="{{ site.baseurl }}assets/js/highlight.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', '{{ site.google_analytics }}', 'auto');
-    ga('send', 'pageview');
-  </script>
-</body>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript" src="{{ "/assets/js/jquery.fitvids.js" | prepend: site.baseurl }}"></script>
+    <script type="text/javascript" src="{{ "/assets/js/index.js" | prepend: site.baseurl }}"></script>
+    {% if site.analytics %}{% include analytics.html %}{% endif %}
+  </body>
 </html>

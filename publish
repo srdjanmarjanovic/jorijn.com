@@ -1,6 +1,5 @@
 
 #!/bin/bash
 rm -rf _site
-jekyll b
-cp htaccess.txt _site/.htaccess
+bundle exec jekyll b
 rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" --chmod=u=rwx,go=rx --progress _site/ jorijn@jorijn.com:~/public_html/

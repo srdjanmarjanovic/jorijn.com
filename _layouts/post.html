@@ -1,50 +1,54 @@
 ---
 layout: default
-archive: true
+header_class: post-head
+post_class: post-template
 ---
-
-<article class="post">
-    <header>
-        <h1>{{ page.title }}</h1>
-        <h2 class="headline">{{ page.date | date:"%-d %B %Y" }}</h2>
+<main class="content" role="main">
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+      <h1 class="post-title">{{ page.title }}</h1>
+      <section class="post-meta">
+        <time class="post-date" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_string }}</time>
+        {% if page.categories.size > 0 %}
+        {{ page.categories | array_to_sentence_string | prepend: 'on ' }}
+        {% endif %}
+      </section>
     </header>
-    <section id="post-body">
-        {{content}}
+
+    <section class="post-content">
+      {{ content }}
     </section>
-</article>
-<footer id="post-meta" class="clearfix">
-    <a href="http://twitter.com/{{ site.authorTwitter }}">
-        <img class="avatar" src="{{ site.baseurl }}assets/images/avatar.png">
-        <div>
-            <span class="dark">{{ site.author }}</span>
-            <span>{{ site.description }}</span>
-        </div>
-    </a>
 
-    <section id="sharing">
-        {% include share.html %}
-    </section>
-</footer>
+    <footer class="post-footer">
+      {% include author.html %}
+      {% include share.html %}
+      {% if site.disqus and page.disable_comments != true %}
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          {% assign canonical_url = page.url | preprend: site.baseurl | prepend: site.url %}
+          this.page.url = '{{ canonical_url }}';
+          this.page.identifier = '{{ page.url }}';
+          this.page.title = '{{ page.title }}';
+        };
+        (function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//{{ site.disqus }}.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+        (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/{{ site.facebook_l10n }}/all.js#xfbml=1";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+      {% endif %}
+    </footer>
+  </article>
+</main>
 
-<!-- Disqus comments -->
-{% if site.disqus %}
-    <div class="archive readmore">
-        <h3>Comments</h3>
-        {% include disqus.html %}
-    </div>
-{% endif %}
-
-<!-- Archive post list -->
-{% if page.archive %}
-    <ul id="post-list" class="archive readmore">
-        <h3>Read more</h3>
-        {% for post in site.posts %}
-            <li>
-                <a href="{{ site.baseurl }}{{ post.url | remove_first: '/' }}">{{ post.title }}<aside class="dates">{{ post.date | date:"%b %d" }}</aside></a>
-            </li>
-        {% endfor %}
-    </ul>
-{% endif %}
-
-
-
+{% include read-next.html %}
