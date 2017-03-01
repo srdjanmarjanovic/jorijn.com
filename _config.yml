@@ -1,0 +1,42 @@
+name: Jorijn Schrijvershof
+description: "Ik word omschreven als perfectionistisch en doelgericht, deze eigenschappen laat ik terug komen in mijn hobby. Ontwikkelen met moderne web technologieën."
+meta_description: "Freelance Web Developer uit Noord-Brabant, Nederland"
+
+aboutPage: true
+
+markdown: redcarpet
+highlighter: pygments
+
+paginate: 20
+baseurl: /
+domain_name: 'http://jorijn.com'
+google_analytics: 'UA-XXXXXXXX-X'
+disqus: false
+disqus_shortname: 'your-disqus-shortname'
+
+# Details for the RSS feed generator
+url:            'http://jorijn.com'
+author:         'Jorijn Schrijvershof'
+authorTwitter:  'Jorijn'
+
+permalink:       /:year/:title/
+
+defaults:
+    -
+        scope:
+            path: "" # empty string for all files
+            type: pages
+        values:
+            layout: default
+    -
+        scope:
+            path: "" # empty string for all files
+            type: posts
+        values:
+            layout: post
+    -
+        scope:
+            path: ""
+            type: drafts
+        values:
+            layout: post
