@@ -49,6 +49,7 @@ DEPENDENCIES
   jekyll-last-modified-at
   jekyll-paginate (= 1.1.0)
   jekyll-sitemap
+  rouge
 
 BUNDLED WITH
    1.14.5
