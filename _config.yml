@@ -22,7 +22,7 @@ navigation:
     label: Contact
 
 # Services (all are optional)
-analytics:
+analytics: UA-16301229-1
 disqus:
 facebook_l10n: nl_NL    # Your locale (en_US, fr_FR, etc.)
 twitter: Jorijn    # Website's Twitter username (without the '@')
