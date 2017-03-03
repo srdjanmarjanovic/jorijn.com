@@ -1,7 +1,7 @@
 AddDefaultCharset utf-8
 
 # 1 Month for all your static assets
-<filesMatch ".(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)$">
+<filesMatch ".(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf|svg)$">
 Header set Cache-Control "max-age=2592000, public"
 </filesMatch>
 
