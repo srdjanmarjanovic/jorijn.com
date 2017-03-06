@@ -15,6 +15,8 @@ GEM
       pathutil (~> 0.9)
       rouge (~> 1.7)
       safe_yaml (~> 1.0)
+    jekyll-compose (0.5.0)
+      jekyll (>= 3.0.0)
     jekyll-last-modified-at (1.0.0)
       jekyll (~> 3.2.1)
       posix-spawn (~> 0.3.9)
@@ -46,6 +48,7 @@ PLATFORMS
 
 DEPENDENCIES
   jekyll (= 3.2.1)
+  jekyll-compose
   jekyll-last-modified-at
   jekyll-paginate (= 1.1.0)
   jekyll-sitemap
