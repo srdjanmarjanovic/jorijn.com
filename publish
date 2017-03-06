@@ -3,3 +3,8 @@
 rm -rf _site
 bundle exec jekyll b
 rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" --chmod=u=rwx,go=rx --progress _site/ jorijn@jorijn.com:~/public_html/
+
+# ping sitemaps
+curl -s "https://www.google.com/webmasters/sitemaps/ping?sitemap=https://jorijn.com/sitemap.xml" >/dev/null
+curl -s "http://www.bing.com/webmaster/ping.aspx?siteMap=https://jorijn.com/sitemap.xml" >/dev/null
+curl -s "http://submissions.ask.com/ping?sitemap=https://jorijn.com/sitemap.xml" >/dev/null
