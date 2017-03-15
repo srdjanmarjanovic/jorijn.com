@@ -22,13 +22,11 @@ Logisch ook, een multibyte karakter neemt meer ruimte in dan zijn standaard tege
 
 In de [upgrade guide](https://laravel.com/docs/master/migrations#creating-indexes) van Laravel hebben ze hier al iets over geschreven: Pas in de `boot` methode van je `AppServiceProvider.php` bestand de standaard sleutel lengte aan:
 
-{% highlight php %}
-<?php
-
+```php?start_inline=true
 use Illuminate\Support\Facades\Schema;
 
 public function boot()
 {
     Schema::defaultStringLength(191);
 }
-{% endhighlight %}
+```

@@ -26,14 +26,13 @@ _Dit is een summiere beschrijving van hetgeen te vinden op de [documentatiepagin
 
 Om te beginnen, dienen we het composer component `laravel/dusk` op te nemen in ons project.
 
-{% highlight bash %}
+```bash
 $ composer require laravel/dusk
-{% endhighlight %}
+```
 
 Zodra deze geïnstalleerd is, moeten we de ServiceProvider registreren in de applicatie. Een goede plek om deze te registreren is in de `AppServiceProvider` in de methode `register`.
 
-{% highlight php %}
-<?php
+```php?start_inline=true
 use Laravel\Dusk\DuskServiceProvider;
 
 /**
@@ -47,22 +46,22 @@ public function register()
         $this->app->register(DuskServiceProvider::class);
     }
 }
-{% endhighlight %}
+```
 
 Om vervolgens de mappenstructuur correct aan te maken op de schijf voer je dit commando uit:
 
-{% highlight bash %}
+```bash
 $ php artisan dusk:install
-{% endhighlight %}
+```
 
 Zorg er voor dat in het configuratiebestand `.env` de `APP_URL` correct staat ingesteld naar de locatie van je applicatie. Dat is in mijn geval `https://browsertest-test.app/`.
 
 ### De testcase: Inloggen
 Maak op de commandline een nieuwe test aan:
 
-{% highlight bash %}
+```bash
 $ php artisan dusk:make LoginTest
-{% endhighlight %}
+```
 
 Deze is nu geplaatst in de map `tests/Browser`. Wat ik wil gaan doen in deze test:
 
@@ -72,9 +71,7 @@ Deze is nu geplaatst in de map `tests/Browser`. Wat ik wil gaan doen in deze tes
 
 Voeg deze functie toe aan de nieuw aangemaakte test:
 
-{% highlight php %}
-<?php
-
+```php?start_inline=true
 public function testLogin()
 {
   $user = factory(\App\User::class)->create([
@@ -91,13 +88,13 @@ public function testLogin()
 
   $user->delete();
 }
-{% endhighlight %}
+```
 
 Draai nu vervolgens met Artisan het Dusk commando:
 
-{% highlight bash %}
+```bash
 $ php artisan dusk
-{% endhighlight %}
+```
 
 Als alles goed gegaan is zie je nu dat er een nieuw Chrome venster opent die geheel geautomatiseerd deze handelingen uitvoert.
 
@@ -105,3 +102,7 @@ Als alles goed gegaan is zie je nu dat er een nieuw Chrome venster opent die geh
 
 ## Conclusie
 Laravel Dusk is een eenvoudige manier om op een snelle manier een toch relatief grote set aan functionaliteit te testen. Dit is een goede manier om op de machine van de developer functionaliteit te kunnen testen. In een volgend artikel wil ik het aspect van headless testen met bijvoorbeeld PhantomJS toelichten. 
+
+### Update 15-03-2017
+
+Ik heb een [update geschreven](/browser-testing-met-laravel-dusk-in-5-4-deel-2-phantomjs/) om testing ook headless met PhantomJS te doen.
