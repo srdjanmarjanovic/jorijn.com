@@ -18,6 +18,8 @@ navigation:
     label: Diensten
   - slug: /projecten
     label: Projecten
+  - slug: /recruiter
+    label: Recruiter?
   - slug: /contact
     label: Contact
 
