@@ -39,6 +39,7 @@ kramdown:
 gems:
   - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-last-modified-at
 
 paginate: 5 # Post excerpts by page
 paginate_path: "/page/:num" # Default was "/page:num/"
